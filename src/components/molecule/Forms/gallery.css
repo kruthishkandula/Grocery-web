@@ -1,0 +1,75 @@
+/* Gallery Browser Styles */
+.gallery-browser-modal .modal-dialog {
+  max-width: 800px;
+}
+
+.gallery-grid {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.gallery-item {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item.selected {
+  border-color: var(--bs-primary);
+}
+
+.selected-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+}
+
+/* Modal adjustments for dark theme */
+[data-theme="dark"] .modal-content {
+  background-color: var(--card-bg);
+  color: var(--bs-body-color);
+}
+
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer {
+  border-color: var(--card-border);
+}
+
+/* Pagination adjustments */
+.pagination .page-link {
+  background-color: var(--card-bg);
+  color: var(--bs-body-color);
+  border-color: var(--card-border);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: var(--bs-secondary);
+  background-color: var(--card-bg);
+}
+
+/* Spinner animation */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
