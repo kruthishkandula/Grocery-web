@@ -1,75 +1,135 @@
-# GroceryPlus Admin Portal
+# Grocery-web (Admin Portal)
 
-This is the admin portal for the GroceryPlus application, providing management capabilities for products, categories, orders, and more.
+Web-based admin dashboard for grocery store management. Built for store owners and administrators to manage inventory, orders, customers, and analytics.
 
-## Features
+## 🚀 Features
 
-- **Products Management**: Create, view, edit, and delete products
-- **Categories Management**: Create, view, edit, and delete categories
-- **Theme Support**: Light and dark mode
-- **Error Handling**: Comprehensive error handling for API failures
-- **Responsive Design**: Mobile-friendly interface
+- **Product Management**: Add, edit, and organize product catalog with categories, pricing, and inventory
+- **Order Management**: View, process, and track customer orders in real-time
+- **Customer Management**: Monitor customer accounts, purchase history, and preferences
+- **Inventory Tracking**: Real-time stock levels, low-stock alerts, and automated reordering
+- **Analytics Dashboard**: Sales reports, customer insights, and performance metrics
+- **User Management**: Multi-level admin access with role-based permissions
+- **Notifications**: Real-time alerts for new orders, inventory updates, and system events
 
-## Prerequisites
+## 🛠️ Tech Stack
 
-- Node.js v14.0.0 or later
+- **Frontend**: React.js 
+- **State Management**: Zustand
+- **UI Framework**: Material-UI, Bootstrap
+- **Charts**: Chart.js 
+- **HTTP Client**: Axios, @tanstack/react-query
+- **Build Tool**: Webpack
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
 - npm or yarn
+- Backend API running (grocery-be)
 
-## Setup Instructions
+## 🏗️ Installation
 
 1. Clone the repository
-2. Navigate to the adminportal directory: `cd adminportal`
-3. Install dependencies: `npm install` or `yarn install`
-4. Create a `.env` file (see Configuration section)
-5. Start the development server: `npm start` or `yarn start`
-
-## Configuration
-
-The admin portal requires configuration for connecting to the CMS API. Create a `.env` file in the root directory with the following variables:
-
-```
-REACT_APP_CMS_URL=http://localhost:3005/api
-REACT_APP_CMS_TOKEN=your_token_here
-REACT_APP_NODE_URL=http://localhost:3000/api
-REACT_APP_APP_OPCO=INDIA
+```bash
+git clone https://github.com/kruthishkandula/Grocery-web.git
+cd grocery-web
 ```
 
-### CMS API Token
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-The CMS API token is required for authentication with the CMS. There are two ways to get the token:
+3. Configure environment variables
+```bash
+cp .env.example .env
+```
+Edit `.env` with your configuration:
+```
+REACT_APP_API_URL=http://localhost:3001/api
+REACT_APP_APP_NAME=Grocery Admin
+```
 
-1. **From tokens.txt**: If you have access to the `tokens.txt` file in the project root, copy the token from there.
+4. Start the development server
+```bash
+npm start
+# or
+yarn start
+```
 
-2. **From CMS Admin**: Log in to the CMS admin panel and generate a new API token.
+## 🚀 Deployment
 
-3. **Using the UI Helper**: If you encounter an authentication error, you can use the "Download .env File with Token" button on the error screen to automatically generate a properly configured `.env` file with the token from tokens.txt.
+### Build for production
+```bash
+npm run build
+```
 
-### Troubleshooting Authentication Errors
+### Deploy to hosting platform
+```bash
+# Example for Render deploy
+commit changes to main deploy
+```
 
-If you encounter a 401 Unauthorized error when accessing the admin portal, follow these steps:
+## 📁 Project Structure
 
-1. Check if you have a valid CMS API token set in the `.env` file.
-2. Verify that the CMS server is running and accessible.
-3. If the token is expired, generate a new one from the CMS admin panel.
-4. Use the "Download .env File with Token" button on the error screen for quick setup.
-5. Restart the development server after updating the token.
+```
+grocery-web/
+├── public/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Page components
+│   ├── services/           # API service calls
+│   ├── store/              # State management
+│   ├── utils/              # Helper functions
+│   ├── hooks/              # Custom React hooks
+│   └── assets/             # Images, fonts, etc.
+├── package.json
+└── README.md
+```
 
-## Project Structure
+## 🔧 Configuration
 
-- `/src/api`: API clients for both CMS and Node backends
-  - `/src/api/cmsApi`: API client for CMS (products, categories)
-  - `/src/api/nodeApi`: API client for Node backend
-- `/src/pages`: React components for each page
-- `/src/components`: Reusable UI components
-  - `/src/components/atom`: Basic UI elements
-  - `/src/components/molecule`: Composite components
-- `/src/utility`: Helper functions and configuration
-- `/src/theme`: Theme configuration and components
+### API Endpoints
+Update the API base URL in your environment file or configuration:
+```javascript
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+```
 
-## Recent Updates
+### Authentication
+The admin portal integrates with JWT-based authentication from the backend API.
 
-- Added real API integration for Products and Categories
-- Implemented detailed error handling for authentication issues
-- Added helper utilities for token management
-- Improved the UI for loading states and error messages
-- Added create, update, and delete functionality for Products and Categories
+## 📚 API Integration
+
+This admin portal consumes the following API endpoints from `grocery-be`:
+
+- `GET /api/admin/dashboard` - Dashboard statistics
+- `GET /api/products` - Product listing
+- `POST /api/products` - Create product
+- `GET /api/orders` - Order management
+- `GET /api/customers` - Customer data
+- `GET /api/analytics` - Reports and analytics
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Create an issue in this repository
+- Contact: kandulakruthish@gmail.com
+
+## 🔗 Related Projects
+
+- [Grocery-mobile](https://github.com/kruthishkandula/Grocery-mobile.git) - Customer mobile app
+- [Grocery-be](https://github.com/kruthishkandula/Grocery-be.git) - Backend API
