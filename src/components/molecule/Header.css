@@ -102,9 +102,20 @@
 
 [data-theme="dark"] .brand-name,
 [data-theme="dark"] .action-text,
+[data-theme="dark"] .navbar-toggler-icon,
 [data-theme="dark"] .profile-name,
 [data-theme="dark"] .profile-phone {
     color: var(--bs-body-color, #f8f9fa);
+}
+
+[data-theme="dark"] .navbar-toggler{
+        background-color: var(--bs-body-color, #f8f9fa);
+        border-width: 0;
+}
+
+[data-theme="dark"] .navbar-collapse {
+        background-color: rgb(30,41,59);
+        border-width: 0;
 }
 
 /* Media Queries */
