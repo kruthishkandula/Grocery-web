@@ -8,6 +8,7 @@ import { useAuth } from "@/Provider/AuthContext";
 import { _isActiveData } from "@/utility/utility";
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import './Dashboard.css';
 
 interface ChartData {
     category: string;
@@ -75,17 +76,19 @@ export default function Dashboard() {
             <div className="container-fluid bg-body-custom">
                 <div className="col-12 row justify-content-center py-3">
                     {/* counts */}
-                    <div className="col-12 row justify-content-between align-items-center" >
+                    <div style={{
+                        rowGap: '10px',
+                        columnGap: '10px'
+                    }} className="col-12 row justify-content-center align-items-center" >
                         {_isActiveData(count_data)?.map((item: any, index: number) => (
                             <div
                                 style={{
-                                    width: '18rem',
                                     backgroundRepeat: 'no-repeat',
                                     backgroundPosition: 'center',
                                     backgroundSize: 'cover',
                                     backgroundImage: `url(${require('@assets/images/card_bg2.png')})`
                                 }}
-                                className="flex-grow align-items-center m-2 p-3 rounded-3 bg-card-custom border-card-custom shadow"
+                                className="flex-grow align-items-center p-3 rounded-3 bg-card-custom border-card-custom shadow count-card"
                                 key={index}
                             >
                                 <Link
